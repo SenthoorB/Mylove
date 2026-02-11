@@ -2,31 +2,86 @@
 <html>
 <head>
 <title>For My Love ❤️</title>
+
 <style>
 body {
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  text-align: center;
-  font-family: Arial;
-  padding-top: 80px;
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  overflow:hidden;
 }
+
+/* Card box */
+.card {
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
 h1 {
-  color: white;
-  font-size: 40px;
+  color:#ff3366;
 }
-.quote {
-  font-size: 24px;
-  color: #fff;
-  margin: 20px;
+
+/* Buttons */
+button {
+  padding:12px 25px;
+  margin:10px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.yes {
+  background:#4CAF50;
+  color:white;
+}
+
+.no {
+  background:#ff4d4d;
+  color:white;
+}
+
+/* Result message */
+#result {
+  margin-top:20px;
+  font-size:22px;
+  color:#ff3366;
 }
 </style>
+
+<script>
+function sayYes() {
+  document.getElementById("result").innerHTML =
+  "I Love You So Much ❤️🤗<br>Here’s a Big Hug and Heart Kiss 😘💖";
+}
+
+function sayNo() {
+  document.getElementById("result").innerHTML =
+  "I know you love me… 😄<br>Come on gimme a Hug 🤗 and Heart Kiss 😘💖";
+}
+</script>
+
 </head>
+
 <body>
 
-<h1>Happy Valentine’s Day My Wife ❤️</h1>
+<div class="card">
 
-<div class="quote">You are my today and all of my tomorrows 💕</div>
-<div class="quote">Loving you is my life’s best decision 💖</div>
-<div class="quote">With you… every day feels like Valentine’s 🌹</div>
+<h1>Will You Be My Valentine? ❤️</h1>
+
+<button class="yes" onclick="sayYes()">Yes 💕</button>
+<button class="no" onclick="sayNo()">No 😜</button>
+
+<div id="result"></div>
+
+</div>
 
 </body>
 </html>
