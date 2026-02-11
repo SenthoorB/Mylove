@@ -17,7 +17,7 @@ body {
   transition: 1s;
 }
 
-/* Card box */
+/* Question Card */
 .card {
   background:white;
   padding:40px;
@@ -27,11 +27,13 @@ body {
   max-width:350px;
 }
 
-h1 {
-  color:#ff3366;
+/* Hide class */
+.hide {
+  display:none;
 }
 
-/* Buttons */
+h1 { color:#ff3366; }
+
 button {
   padding:12px 25px;
   margin:10px;
@@ -44,23 +46,28 @@ button {
 .yes { background:#4CAF50; color:white; }
 .no { background:#ff4d4d; color:white; }
 
-/* Result text */
-#result {
-  margin-top:20px;
-  font-size:22px;
-  color:#ff3366;
+/* Result Screen */
+#resultScreen {
+  display:none;
+  text-align:center;
+  color:white;
 }
 
-/* Love images */
+.love-text {
+  font-size:28px;
+  margin-bottom:20px;
+  text-shadow:0 0 10px black;
+}
+
 .love-img {
-  width:180px;
-  margin-top:15px;
+  width:220px;
   border-radius:15px;
-  box-shadow:0 0 15px rgba(0,0,0,0.4);
+  box-shadow:0 0 20px black;
 }
 </style>
 
 <script>
+
 function changeBg() {
   document.body.style.backgroundImage =
   "url('IMG_2678.jpeg')";
@@ -68,39 +75,50 @@ function changeBg() {
 
 /* YES Click */
 function sayYes() {
+
   changeBg();
-  document.getElementById("result").innerHTML =
-  "I Love You So Much My Love ❤️🤗<br>" +
-  "You are my today & all my tomorrows 💕<br>" +
-  "Here’s a Big Hug for You 🤗💖<br><br>" +
+
+  document.getElementById("questionCard").classList.add("hide");
+
+  document.getElementById("resultScreen").style.display="block";
+
+  document.getElementById("resultScreen").innerHTML =
+  "<div class='love-text'>I Love You So Much My Love ❤️🤗<br>You are my today & all my tomorrows 💕<br>Here’s a Big Hug for You 🤗💖</div>" +
   "<img src='IMG_2676.jpeg' class='love-img'>";
 }
 
 /* NO Click */
 function sayNo() {
+
   changeBg();
-  document.getElementById("result").innerHTML =
-  "I know you love me my love 😄💖<br>" +
-  "Come on… gimme a Heart Kiss 😘<br>" +
-  "Don’t hide your love 😜❤️<br><br>" +
+
+  document.getElementById("questionCard").classList.add("hide");
+
+  document.getElementById("resultScreen").style.display="block";
+
+  document.getElementById("resultScreen").innerHTML =
+  "<div class='love-text'>I know you love me my love 😄💖<br>Come on… gimme a Heart Kiss 😘<br>Don’t hide your love 😜❤️</div>" +
   "<img src='IMG_2677.jpeg' class='love-img'>";
 }
+
 </script>
 
 </head>
 
 <body>
 
-<div class="card">
+<!-- Question Card -->
+<div class="card" id="questionCard">
 
 <h1>Will You Be My Valentine? ❤️</h1>
 
 <button class="yes" onclick="sayYes()">Yes 💕</button>
 <button class="no" onclick="sayNo()">No 😜</button>
 
-<div id="result"></div>
-
 </div>
+
+<!-- Result Screen -->
+<div id="resultScreen"></div>
 
 </body>
 </html>
