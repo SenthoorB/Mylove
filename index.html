@@ -11,26 +11,22 @@ body {
   justify-content:center;
   align-items:center;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
-  background-size: cover;
-  background-position: center;
-  transition: 1s;
+  background-image:url('IMG_2678.jpeg'); /* Question BG */
+  background-size:cover;
+  background-position:center;
+  transition:1s;
 }
 
 /* Question Card */
 .card {
-  background:white;
+  background:rgba(255,255,255,0.9);
   padding:40px;
   border-radius:20px;
   text-align:center;
   box-shadow:0 0 20px rgba(0,0,0,0.3);
-  max-width:350px;
 }
 
-/* Hide class */
-.hide {
-  display:none;
-}
+.hide { display:none; }
 
 h1 { color:#ff3366; }
 
@@ -46,59 +42,60 @@ button {
 .yes { background:#4CAF50; color:white; }
 .no { background:#ff4d4d; color:white; }
 
-/* Result Screen */
+/* Result Text */
 #resultScreen {
   display:none;
   text-align:center;
   color:white;
+  max-width:600px;
 }
 
 .love-text {
-  font-size:28px;
-  margin-bottom:20px;
-  text-shadow:0 0 10px black;
-}
-
-.love-img {
-  width:220px;
-  border-radius:15px;
-  box-shadow:0 0 20px black;
+  font-size:30px;
+  text-shadow:0 0 15px black;
 }
 </style>
 
 <script>
 
-function changeBg() {
+/* YES */
+function sayYes(){
+
   document.body.style.backgroundImage =
-  "url('IMG_2678.jpeg')";
-}
+  "url('IMG_2676.jpeg')"; /* Hug BG */
 
-/* YES Click */
-function sayYes() {
+  document.getElementById("questionCard")
+  .classList.add("hide");
 
-  changeBg();
-
-  document.getElementById("questionCard").classList.add("hide");
-
-  document.getElementById("resultScreen").style.display="block";
+  document.getElementById("resultScreen")
+  .style.display="block";
 
   document.getElementById("resultScreen").innerHTML =
-  "<div class='love-text'>I Love You So Much My Love ❤️🤗<br>You are my today & all my tomorrows 💕<br>Here’s a Big Hug for You 🤗💖</div>" +
-  "<img src='IMG_2676.jpeg' class='love-img'>";
+  "<div class='love-text'>" +
+  "I Love You So Much My Love ❤️🤗<br>" +
+  "You are my today & all my tomorrows 💕<br>" +
+  "Here’s a Big Hug for You 🤗💖" +
+  "</div>";
 }
 
-/* NO Click */
-function sayNo() {
+/* NO */
+function sayNo(){
 
-  changeBg();
+  document.body.style.backgroundImage =
+  "url('IMG_2677.jpeg')"; /* Kiss BG */
 
-  document.getElementById("questionCard").classList.add("hide");
+  document.getElementById("questionCard")
+  .classList.add("hide");
 
-  document.getElementById("resultScreen").style.display="block";
+  document.getElementById("resultScreen")
+  .style.display="block";
 
   document.getElementById("resultScreen").innerHTML =
-  "<div class='love-text'>I know you love me my love 😄💖<br>Come on… gimme a Heart Kiss 😘<br>Don’t hide your love 😜❤️</div>" +
-  "<img src='IMG_2677.jpeg' class='love-img'>";
+  "<div class='love-text'>" +
+  "I know you love me my love 😄💖<br>" +
+  "Come on… gimme a Heart Kiss 😘<br>" +
+  "Don’t hide your love 😜❤️" +
+  "</div>";
 }
 
 </script>
@@ -117,7 +114,7 @@ function sayNo() {
 
 </div>
 
-<!-- Result Screen -->
+<!-- Result -->
 <div id="resultScreen"></div>
 
 </body>
